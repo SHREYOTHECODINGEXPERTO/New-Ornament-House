@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ornament House | Traditional Indian Jewelry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --maroon: #800020;
+            --deep-red: #8B0000;
+            --saffron: #FF9933;
+            --cream: #FFFDD0;
+            --dark-brown: #5D4037;
+            --light-gold: #F7EF8A;
+            --rich-purple: #4B0082;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--dark-brown);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--maroon), var(--deep-red));
+            color: var(--cream);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            animation: glow 2s infinite alternate;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-icons i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-icons i:hover {
+            color: var(--gold);
+        }
+
+        /* Welcome Animation */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeOut 3s forwards 4s;
+        }
+
+        .welcome-content {
+            text-align: center;
+            color: white;
+            animation: zoomIn 2s ease;
+        }
+
+        .welcome-content h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .welcome-characters {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .character {
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .character:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .character i {
+            font-size: 5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .diya-container {
+            position: absolute;
+            bottom: 50px;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .diya {
+            width: 40px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 0 0 20px 20px;
+            position: relative;
+            animation: flicker 2s infinite alternate;
+        }
+
+        .diya:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .diya:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .diya::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--saffron);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 0 0 20px var(--saffron);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1596944946751-2c0aeca85c5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mandala {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            opacity: 0.1;
+            background: radial-gradient(circle, transparent 20%, var(--gold) 20%, var(--gold) 80%, transparent 80%),
+                        radial-gradient(circle, transparent 20%, var(--gold) 20%, var(--gold) 80%, transparent 80%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            animation: rotate 30s linear infinite;
+        }
+
+        .mandala:nth-child(1) {
+            top: 10%;
+            left: 10%;
+        }
+
+        .mandala:nth-child(2) {
+            bottom: 10%;
+            right: 10%;
+            animation-direction: reverse;
+        }
+
+        .peacock {
+            position: absolute;
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            animation: peacockDance 8s ease-in-out infinite;
+        }
+
+        .peacock:nth-child(3) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .peacock:nth-child(4) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--maroon);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 2s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--maroon);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--maroon);
+            margin-bottom: 1rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 2rem;
+            background-color: var(--cream);
+            position: relative;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            height: 250px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-img::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: 1;
+        }
+
+        .product-card:hover .product-img::before {
+            transform: translateX(100%);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            color: var(--maroon);
+            margin-bottom: 0.5rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: linear-gradient(to right, var(--maroon), var(--deep-red));
+            color: white;
+            position: relative;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+
+        .location-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-info h2 {
+            color: var(--maroon);
+            margin-bottom: 1.5rem;
+        }
+
+        .location-info p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .address {
+            background-color: var(--cream);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .address i {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            background: linear-gradient(45deg, var(--gold), var(--light-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: var(--maroon);
+        }
+
+        .map-container i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Proprietor Section */
+        .proprietor {
+            padding: 5rem 2rem;
+            background: linear-gradient(to right, var(--maroon), var(--deep-red));
+            color: white;
+        }
+
+        .proprietor-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .proprietor-text h2 {
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .proprietor-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .contact-info i {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        .proprietor-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--gold), var(--light-gold));
+        }
+
+        .proprietor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: white;
+            padding: 3rem 2rem;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+            bottom: -8px;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons i {
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-icons i:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px var(--cream), 0 0 10px var(--cream), 0 0 15px var(--gold);
+            }
+            to {
+                text-shadow: 0 0 10px var(--cream), 0 0 20px var(--gold), 0 0 30px var(--gold);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes peacockDance {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-10px) rotate(-5deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content, .location-content, .proprietor-content {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .character i {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Animation -->
+    <div class="welcome-overlay">
+        <div class="welcome-content">
+            <h1>नमस्ते! Welcome to New Ornament House</h1>
+            <div class="welcome-characters">
+                <div class="character">
+                    <i class="fas fa-male"></i>
+                    <p>Traditional Welcome</p>
+                </div>
+                <div class="character">
+                    <i class="fas fa-female"></i>
+                    <p>Elegant Greetings</p>
+                </div>
+            </div>
+        </div>
+        <div class="diya-container">
+            <div class="diya"></div>
+            <div class="diya"></div>
+            <div class="diya"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-gem"></i>
+                NEW ORNAMENT HOUSE
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Necklaces</a></li>
+                    <li><a href="#">Earrings</a></li>
+                    <li><a href="#">Bangles</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-shopping-bag"></i>
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="mandala"></div>
+        <div class="mandala"></div>
+        <div class="peacock"><i class="fas fa-feather-alt"></i></div>
+        <div class="peacock"><i class="fas fa-feather-alt"></i></div>
+        <div class="hero-content">
+            <h1>Elegance Redefined</h1>
+            <p>Discover the timeless beauty of traditional Indian jewelry with a contemporary touch</p>
+            <a href="#" class="cta-button">Visit Our Store</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Authentic Craftsmanship</h3>
+                <p>Each piece is meticulously crafted by skilled artisans using traditional techniques passed down through generations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h3>Premium Quality</h3>
+                <p>We use only the finest materials including 22K gold, precious gemstones, and authentic workmanship.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3>Personalized Service</h3>
+                <p>Visit our store for a personalized jewelry consultation and custom design services.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <h2 class="section-title">Our Collections</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="necklace.jpg">
+                </div>
+                <div class="product-info">
+                    <h3>Traditional Necklace Sets</h3>
+                    <p>Exquisite designs including Polki, Meenakari, and Temple jewelry</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="earrings.jpeg" alt="Earrings Collection">
+                </div>
+                <div class="product-info">
+                    <h3>Earrings Collection</h3>
+                    <p>Jhumkas, Chandbalis, and contemporary designs</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="bangles.webp" alt="Bangles & Bracelets">
+                </div>
+                <div class="product-info">
+                    <h3>Bangles & Bracelets</h3>
+                    <p>Gold, silver, and lac bangles with intricate designs</p>
+                </div>
+            </div>
+             <div class="product-card">
+                <div class="product-img">
+                    <img src="payal.webp" alt="Payal & Toe Rings">
+                </div>
+                <div class="product-info">
+                    <h3>Payal & Toe Rings</h3>
+                    <p>Gold, silver, and lac payals with intricate designs</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="model4.jpg" alt="Bridal Collection">
+                </div>
+                <div class="product-info">
+                    <h3>Bridal Collection</h3>
+                    <p>Complete sets for the special day including Maang Tikka and Haar</p>
+                </div>
+            </div>
+             <div class="product-card">
+                <div class="product-img">
+                    <img src="laxmi ganesh.jpg" alt="And many more">
+                </div>
+                <div class="product-info">
+                    <h3>And many more</h3>
+                    <p>Explore our extensive collection of traditional jewelry</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Our Heritage</h2>
+                <p>New Ornament House has been a symbol of elegance and tradition. With roots in the heart of West Bengal, we bring you the finest collection of traditional Indian jewelry.</p>
+                <p>Our master craftsmen combine age-old techniques with contemporary designs to create pieces that honor tradition while appealing to modern tastes.</p>
+                <a href="#" class="cta-button">Visit and Experience!!</a>
+            </div>
+            <div class="about-image">
+                <div style="height: 300px; background: linear-gradient(45deg, var(--gold), var(--light-gold)); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-history" style="font-size: 5rem; color: var(--maroon);"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location">
+        <h2 class="section-title">Visit Our Store</h2>
+        <div class="location-content">
+            <div class="location-info">
+                <h2>Find Us</h2>
+                <p>We welcome you to visit our store to experience the beauty of our jewelry collection in person. Our knowledgeable staff will help you find the perfect piece for any occasion.</p>
+                
+                <div class="address">
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong></p>
+                    <p>Bauria Station Rd, opposite of Rajashree Villa, Bauria, East Burikhali, West Bengal 711310</p>
+                    <p>Google Maps Code: F5X8+JR East Burikhali, West Bengal</p>
+                </div>
+                
+                <div class="address">
+                    <p><i class="fas fa-clock"></i> <strong>Store Hours:</strong></p>
+                    <p>Monday - Wednesday, Friday - Saturday:</p>
+                    <p>11:00 AM - 1:30 PM & 5:30 PM - 10:30 PM</p>
+                    <p>Thursday: Closed</p>
+                </div>
+            </div>
+            <div class="map-container">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Visit Our Store</h3>
+                <p>We'd love to welcome you in person!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proprietor Section -->
+    <section class="proprietor">
+        <div class="proprietor-content">
+            <div class="proprietor-text">
+                <h2>Meet Our Proprietor</h2>
+                <p>Lakshmikanta Kar is the proud owner of New Ornament House. His love for traditional Indian jewelry and commitment to quality has made this store a trusted name in West Bengal.</p>
+                <p>He ensures that every piece in our collection meets the highest standards of craftsmanship and beauty.</p>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-user"></i> <strong>Proprietor:</strong> Lakshmikanta Kar</p>
+                    <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91 9836732715</p>
+                </div>
+            </div>
+            <div class="proprietor-image">
+                <div style="height: 400px; background: linear-gradient(45deg, var(--gold), var(--light-gold)); display: flex; align-items: center; justify-content: center;">
+                    <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI1LTA5L3NyLWltYWdlLTExMDgyMDI1LWFtMDEtcy0zODUtbWZmMmk2bW4uanBn.jpg" alt="Cartoon Man - Lakshmikanta Kar" style="width: 80%; height: auto; max-height: 350px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>New Ornament House</h3>
+                <p>Bringing you the finest traditional Indian jewelry with a modern touch since 1985.</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Necklaces</a></li>
+                    <li><a href="#">Earrings</a></li>
+                    <li><a href="#">Bangles</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Store Information</a></li>
+                    <li><a href="#">Custom Orders</a></li>
+                    <li><a href="#">Care Instructions</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Bauria Station Rd, West Bengal</li>
+                    <li><i class="fas fa-phone"></i> +91 9836732715</li>
+                    <li><i class="fas fa-user"></i> Lakshmikanta Kar</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 New Ornament House. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            // Animate elements when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Set initial state for animation
+            featureCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            productCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
